@@ -22,6 +22,10 @@ if (words.length !== 6) {
   console.error(`entry must be exactly six words, got ${words.length}: ${JSON.stringify(STORY)}`);
   process.exit(1);
 }
+if (!/[.!?]$/.test(STORY.trim())) {
+  console.error(`entry must be one complete sentence, got: ${JSON.stringify(STORY)}`);
+  process.exit(1);
+}
 if (STORY.length < 1 || STORY.length > 60 || STORY.trim().length === 0) {
   console.error(`entry must be 1-60 characters of non-whitespace text, got ${STORY.length}`);
   process.exit(1);
